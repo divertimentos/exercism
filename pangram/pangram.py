@@ -1,25 +1,21 @@
 import string
 
+
 def is_pangram(*sentences):
     for sentence in sentences:
-        if sentence == "":  # sentence_empty
+
+        if len(sentence) == 0:  # se sentence for vazia
             return False
-        
-        
-        else:  # Se sentence não for vazia
-            for char in sentence:
-                if "x" not in sentence:  # missing_character_x
-                    return False
 
-                if char not in string.ascii_letters:  # another_missing_character
-                    return False  # Não é um pangram
+        not_in_sentence = list()
+        for letter in string.ascii_lowercase:
+            # se uma letra do alfabeto não estiver na sentença:
+            if letter not in sentence.lower():
+                not_in_sentence.append(letter)  # adiciona a letra à lista
 
-                else: # É um pangram
-                    if sentence.islower():  # perfect_lower_case_pangram
-                        return True
-                    
-                    if string.punctuation in sentence:
-                        return True
-
-is_pangram()
-is_pangram('abcdefghijklmnopqrstuvwxyz')
+        if len(not_in_sentence) == 0:  # se não houver letra de fora do alfabeto
+            print("It's a pangram!")
+            return True
+        else:
+            print("It's not a pangram")
+            return False
