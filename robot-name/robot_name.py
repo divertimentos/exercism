@@ -25,6 +25,15 @@ class Robot(object):
     def get_name(self):
         return self.name
 
+    def reset(self):
+        name = Robot.__init__(self)
+        return self.name
 
-droid = Robot()
-print(droid.get_name())
+
+robot = Robot()
+
+print(f"Nome da instância: {robot.__class__.__name__} | Nome do robô: {robot.get_name()}")
+
+print(f"Nome da instância: {robot.__class__.__name__} | Novo nome: {robot.reset()}")
+
+print(robot.get_name())
