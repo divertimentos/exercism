@@ -4,26 +4,28 @@ from random import randint
 
 
 class Robot(object):
-    def __init__(self, char, num):
-        self.char = char.upper()
-        self.num = num
+    def __init__(self):
+        self.name = self.random_name()
+        self.num = self.random_num()
 
-    def random_name(self, name_length=3):
+    def random_name(self, name_length=2):
         letters = string.ascii_uppercase
         name = ''.join(random.choice(letters) for i in range(name_length))
         return name
+
     def random_num(self, num_length=3):
-        lista = list()
+        num = list()
 
         for i in range(num_length):
             x = randint(0, 9)
-            lista.append(x)
-        
-        lista = ''.join(map(str, lista))
-        return lista
+            num.append(x)
 
-    def join():
-        pass
+        num = ''.join(map(str, num))
+        return num
 
-print(Robot.random_name(3))
-print(Robot.random_num(3))
+    def get_name(self):
+        return self.name + self.num
+
+
+droid = Robot()
+print(droid.get_name())
