@@ -5,8 +5,7 @@ from random import randint
 
 class Robot(object):
     def __init__(self):
-        self.name = self.random_name()
-        self.num = self.random_num()
+        self.name = self.random_name() + self.random_num()
 
     def random_name(self, name_length=2):
         letters = string.ascii_uppercase
@@ -24,7 +23,7 @@ class Robot(object):
         return num
 
     def get_name(self):
-        return self.name + self.num
+        return self.name
 
 
 droid = Robot()
