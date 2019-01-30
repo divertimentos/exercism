@@ -5,7 +5,7 @@ from random import randint
 
 class Robot(object):
     def __init__(self):
-        self.name = self.random_name() + self.random_num()
+        self.name = f"{self.random_name()}{self.random_num()}"
 
     def random_name(self, name_length=2):
         letters = string.ascii_uppercase
@@ -26,14 +26,26 @@ class Robot(object):
         return self.name
 
     def reset(self):
-        name = Robot.__init__(self)
-        return self.name
+        self.name2 = self.random_name() + self.random_num()
+        return self.name2
+    
+        # self.name2 = self.random_name() + self.random_num()
+        # if self.name2 != self.name:
+        #     self.name = self.name2
+        #     return self.name
+
 
 
 robot = Robot()
+print(f"Instância robot | Nome do robô: {robot.get_name()}")
+print(f"Instância robot | Novo nome: {robot.reset()}")
+print(f"Método get name: {robot.get_name()}")
 
-print(f"Nome da instância: {robot.__class__.__name__} | Nome do robô: {robot.get_name()}")
+print("\n")
 
-print(f"Nome da instância: {robot.__class__.__name__} | Novo nome: {robot.reset()}")
+droid = Robot()
+print(f"Instância droid | Nome do robô: {droid.get_name()}")
+print(f"Método get_name: {droid.get_name()}")
+print(f"Instância robot | Novo nome: {droid.reset()}")
 
-print(robot.get_name())
+print(droid.name == droid.name2)
