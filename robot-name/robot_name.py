@@ -20,16 +20,6 @@ class Robot(object):
         return num
 
     def reset(self):
+        random.seed()
         self.name = f"{self.random_name()}{self.random_num()}"
         return self.name
-
-
-robot = Robot()
-
-print(f"Nome original: {robot.name}")
-
-robot.reset()
-
-name2 = robot.name
-
-print(f"Novo nome: {name2}")
