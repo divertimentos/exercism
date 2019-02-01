@@ -1,9 +1,11 @@
 def proteins(strand):
-    if len(strand) % 3 == 0:
+        strand = list(strand)
+        codons = list()
+        while len(strand) > 0:
+                codon = strand[0:3]
+                codons.append(codon)
+                strand = strand[3:]
+                # print(codons)
+        print(codons)        
 
-        for i in range(0, len(strand),3):
-            pass
-    else:
-        print("Invalid RNA sequence")
-
-proteins("123456")
+proteins("AAABBBCCC")
