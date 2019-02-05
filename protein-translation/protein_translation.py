@@ -23,48 +23,18 @@ def proteins(strand):
     }
 
     stop = ["UAA", "UAG", "UGA"]
+    translated = set()
     
-
-    # print(sequence)
 
     for key, value in aminoacids.items():
-        for i in value:
-            if i in sequence:
-                print(key)
-    
+        for v in value:
+            for s in sequence:
+                for st in stop:                    
+                    if s == v:
+                        translated.add(key)
+                    elif st == s:
+                        break
+    print(translated)
 
-    # for stop_condition in stop:
-    #     for key, value in aminoacids.items():
-    #         for i in value:
-    #             for s in sequence:
-    #                 if stop_condition == s:
-    #                     print("irá parar")
-    #                     break
-    #                 if s in i:
-    #                     print(key)
-
-
-
-
-    # for key, value in aminoacids.items():
-    #     for i in value:
-    #         for s in sequence:
-    #             if aminoacids.get("STOP") == s:
-    #                 print("teste")
-
-                # if i in s:
-                #     print(key)
-    # print(sequence)
-
-    # for s in sequence:
-    #         print(type(s))
-
-
-    # for k, v in aminoacids.items():
-    #         print(type(v))
-    # for s in sequence:
-    #         for k, v in aminoacids.items():
-    #                 for i in v:
-    #                         if i == s:
-    #                                 print(k)
 proteins("AUGUUUUCUUAAAUG")
+# proteins("AUGUUUUCU")
