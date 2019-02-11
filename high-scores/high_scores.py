@@ -20,7 +20,10 @@ class HighScores:
                 self.scores.append(random_int)
         return self.scores
 
+    def highest_score(self):
+        return max(self.scores)
 
 
 player = HighScores(10)
-print(player.generate_scores(10))
+print(player.generate_scores(5))
+print(player.highest_score())
