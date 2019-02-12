@@ -35,13 +35,11 @@ class HighScores:
 
     # the difference between the last and the highest scores:
     def last_x_highest(self):
-        pass
+        return self.highest_score() - self.last_added()
 
 player = HighScores(10)
-
 print(f"Generate score list: {player.generate_scores(10)}")
-
-# print(f"Highest score: {player.highest_score()}")
-# print(f"The last added score: {player.last_added()}")
-
+print(f"Highest score: {player.highest_score()}")
+print(f"The last added score: {player.last_added()}")
 print(f"Three highest scores: {player.three_highest()}")
+print(f"The last x the highest scores: {player.last_x_highest()}")
