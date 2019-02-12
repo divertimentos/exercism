@@ -12,25 +12,25 @@ class HighScores:
     def __init__(self, scores):
         self.scores = scores
 
-    def generate_scores(self, plays):
-        self.scores = list()
-        while len(self.scores) < plays:
+    def generate_scores(self, scores):
+        self.scores_list = list()
+        while len(self.scores_list) < scores:
             random_int = randint(0, 100)
             if random_int % 10 == 0:
-                self.scores.append(random_int)
-        return self.scores
+                self.scores_list.append(random_int)
+        return self.scores_list
 
     # Highest score from the list:
     def highest_score(self):
-        return max(self.scores)
+        return max(self.scores_list)
 
     # the last added score:
     def last_added(self):
-        return self.scores[-1]
+        return self.scores_list[-1]
 
     # the three highest scores:
     def three_highest(self):
-        sorted_scores = sorted(self.scores)
+        sorted_scores = sorted(self.scores_list)
         return sorted_scores[-3:]
 
     # the difference between the last and the highest scores:
