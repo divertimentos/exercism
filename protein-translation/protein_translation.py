@@ -31,10 +31,11 @@ def proteins(strand):
                 for st in stop:
                     if s == v:
                         translated.add(key)
-                    elif st == s:
+                    if st == s:
                         break
     return print(translated)
 
 
-proteins("AUGUUUUCUUAAAUG")
+# proteins("AUGUUUUCUUAAAUG")
 # proteins("AUGUUUUCU")
+proteins("UAAAUG")
