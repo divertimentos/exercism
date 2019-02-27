@@ -12,9 +12,9 @@ and a report on the difference between the last and the highest scores.
 
 from random import randint
 
-def generate_scores(scores):
+def generate_scores(scores_num):
     scores_list = list()
-    while len(scores_list) < scores:
+    while len(scores_list) < scores_num:
         random_int = randint(0, 100)
         if random_int % 10 == 0:
             scores_list.append(random_int)
@@ -42,9 +42,21 @@ class HighScores:
     # the three highest scores:
     def personal_top(self):
         three_highest = list()
-        if len(three_highest) == 0:
-            three_highest.append(max(self.scores))
-        
+        _scores = self.scores[:]
+
+
+        while len(three_highest) < 3:
+            if len(three_highest) == 0:
+                three_highest.append(max(_scores))
+                _scores.remove(max(_scores))
+
+            for score in _scores:
+                if score >= three_highest[0]:
+                    three_highest.append(score)
+                    _scores.remove(score)
+                    print(f"Teste tamanho de three_highest: {three_highest}")
+            
+            # print(f"Lista de três completa: {three_highest}")
         return three_highest
 
         # sorted_scores = sorted(self.scores)
