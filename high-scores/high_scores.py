@@ -31,9 +31,7 @@ class HighScores:
 
     # Highest score from the list:
     def personal_best(self):
-        maximum = list()
-        maximum.append(max(self.scores))
-        return maximum
+        return max(self.scores)
 
     # the last added score:
     def last_added(self):
@@ -41,36 +39,7 @@ class HighScores:
 
     # the three highest scores:
     def personal_top(self):
-        three_highest = list()
-        _scores = self.scores[:]
-
-
-        while len(three_highest) < 3:
-            if len(three_highest) == 0:
-                three_highest.append(max(_scores))
-                _scores.remove(max(_scores))
-
-            for score in _scores:
-                if score >= three_highest[0]:
-                    three_highest.append(score)
-                    _scores.remove(score)
-                    print(f"Teste tamanho de three_highest: {three_highest}")
-            
-            # print(f"Lista de três completa: {three_highest}")
-        return three_highest
-
-        # sorted_scores = sorted(self.scores)
-        # return sorted_scores[-3:]
-
-        # for score in self.scores:
-        #     max_score = list()
-        #     if len(max_score) == 0:
-        #         max_score.append(score)
-        #     else:
-        #         if score >= max_score[0]:
-        #             max_score.append(score)
-        # return max_score
-
+        return sorted(self.scores, reverse=True)[:3]
 
     # the difference between the last and the highest scores:
     def last_minus_highest(self):
