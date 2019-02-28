@@ -25,7 +25,7 @@ class HighScores:
     def __init__(self, scores):
         self.scores = scores
     
-    # Mostra a lista de scores geradas:
+    # Shows the full scores list:
     def show_scores(self):
         return self.scores
 
@@ -35,6 +35,7 @@ class HighScores:
 
     # the last added score:
     def last_added(self):
+        
         return self.scores[-1]
 
     # the three highest scores:
@@ -45,12 +46,10 @@ class HighScores:
     def last_minus_highest(self):
         return self.personal_best() - self.last_added()
 
-player = HighScores(generate_scores(4))
+# player = HighScores(generate_scores(4))
 
-print(f"Scores list: {player.show_scores()}")
+# print(f"Scores list: {player.show_scores()}")
 # print(f"Highest score: {player.personal_best()}")
 # print(f"The last added score: {player.last_added()}")
-print(f"Three highest scores: {player.personal_top()}")
-# print(f"The last minus the highest scores: {player.last_minus_highest()}")
-
-# print(player.scores)
+# print(f"Three highest scores: {player.personal_top()}")
+# print(f"The highest score minus the last score: {player.last_minus_highest()}")
