@@ -53,13 +53,3 @@ class HighScores:
             return f"Your latest score was {self.latest()}. That's {(self.personal_best() - self.latest())} short of your personal best!"
         if self.latest() == self.personal_best():
             return f"Your latest score was {self.latest()}. That's your personal best!"
-
-
-# player = HighScores(generate_scores(4))
-
-# print(f"Scores list: {player.show_scores()}")
-# print(f"Report: {player.report()}")
-# print(f"Highest score: {player.personal_best()}")
-# print(f"The last added score: {player.last_added()}")
-# print(f"Three highest scores: {player.personal_top()}")
-# print(f"The highest score minus the last score: {player.last_minus_highest()}")
