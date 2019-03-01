@@ -1,16 +1,17 @@
 """
 Manage a game player's High Score list.
 
-Your task is to build a high-score component of the classic Frogger game, 
-one of the highest selling and addictive games of all time, 
-and a classic of the arcade era. 
+Your task is to build a high-score component of the classic Frogger game,
+one of the highest selling and addictive games of all time,
+and a classic of the arcade era.
 
-Your task is to write methods that return the highest score from the list, 
-the last added score, the three highest scores, 
+Your task is to write methods that return the highest score from the list,
+the last added score, the three highest scores,
 and a report on the difference between the last and the highest scores.
 """
 
 from random import randint
+
 
 def generate_scores(scores_num):
     scores_list = list()
@@ -24,18 +25,18 @@ def generate_scores(scores_num):
 class HighScores:
     def __init__(self, scores):
         self.scores = scores
-    
-    # Shows the full scores list:
+
+    # shows the full scores list:
     def show_scores(self):
         return self.scores
 
-    # Highest score from the list:
+    # highest score from the list:
     def personal_best(self):
         return max(self.scores)
 
     # the last added score:
-    def last_added(self):
-        
+    def latest(self):
+
         return self.scores[-1]
 
     # the three highest scores:
@@ -46,9 +47,18 @@ class HighScores:
     def last_minus_highest(self):
         return self.personal_best() - self.last_added()
 
+    # Reports custom information about some scores:
+    def report(self):
+        if self.latest() < self.personal_best():
+            return f"Your latest score was {self.latest()}. That's {(self.personal_best() - self.latest())} short of your personal best!"
+        if self.latest() == self.personal_best():
+            return f"Your latest score was {self.latest()}. That's your personal best!"
+
+
 # player = HighScores(generate_scores(4))
 
 # print(f"Scores list: {player.show_scores()}")
+# print(f"Report: {player.report()}")
 # print(f"Highest score: {player.personal_best()}")
 # print(f"The last added score: {player.last_added()}")
 # print(f"Three highest scores: {player.personal_top()}")
