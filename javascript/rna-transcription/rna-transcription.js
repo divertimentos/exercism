@@ -1,4 +1,4 @@
-const transcriptionRules = {
+const Dna2Rna = {
   G: "C",
   C: "G",
   T: "A",
@@ -6,8 +6,9 @@ const transcriptionRules = {
 };
 
 export const toRna = (nucleotidesArray) => {
-  return nucleotidesArray
-    .split("")
-    .map((nucleotide) => transcriptionRules[nucleotide])
-    .join("");
+  let result = "";
+  for (let i = 0; i < nucleotidesArray.length; i++) {
+    result += Dna2Rna[nucleotidesArray[i]];
+  }
+  return result;
 };
