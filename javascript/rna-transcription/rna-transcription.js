@@ -1,14 +1,13 @@
-export const toRna = (nucleotides) => {
-  const transcriptionSchema = {
-    G: "C",
-    C: "G",
-    T: "A",
-    A: "U",
-  };
+const transcriptionRules = {
+  G: "C",
+  C: "G",
+  T: "A",
+  A: "U",
+};
 
-  const result = nucleotides
+export const toRna = (nucleotidesArray) => {
+  return nucleotidesArray
     .split("")
-    .map((item) => transcriptionSchema[item])
+    .map((nucleotide) => transcriptionRules[nucleotide])
     .join("");
-  return result;
 };
