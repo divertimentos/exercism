@@ -6,10 +6,6 @@ export class Triangle {
     this.c = sides[2];
   }
 
-  get sumSides() {
-    return this.sides.reduce((sum, curr) => sum + curr);
-  }
-
   get isTriangle() {
     return (
       this.a + this.b > this.c &&
@@ -18,8 +14,11 @@ export class Triangle {
     );
   }
 
+  get sumSides() {
+    return this.sides.reduce((sum, curr) => sum + curr);
+  }
+
   get isEquilateral() {
-    // return this.sumSides % this.sides.length == 0 && this.sumSides / this.sides.length == 0;
     return this.sumSides > 0 && this.a === this.b && this.b === this.c;
   }
 
