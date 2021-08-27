@@ -1,14 +1,10 @@
-const Dna2Rna = {
+const nucleotides = {
   G: "C",
   C: "G",
   T: "A",
   A: "U",
 };
 
-export const toRna = (nucleotidesArray) => {
-  let result = "";
-  for (let i = 0; i < nucleotidesArray.length; i++) {
-    result += Dna2Rna[nucleotidesArray[i]];
-  }
-  return result;
+export const toRna = (string) => {
+  return string.replace(/[GCTA]/g, (matched) => nucleotides[matched]);
 };
