@@ -34,6 +34,10 @@ export class Triangle {
   }
 
   get isScalene() {
-    throw new Error("Remove this statement and implement this function");
+    if (this.isTriangle) {
+      return !this.isEquilateral && !this.isIsosceles;
+    }
+
+    return false;
   }
 }
