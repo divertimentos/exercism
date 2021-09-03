@@ -18,10 +18,10 @@ export function dayRate(ratePerHour) {
  */
 export function monthRate(ratePerHour, discount) {
    const newDiscount = discount === 0 ? 1 : discount
-  //  console.log("DESCONTOOOOOOOOOOO: ", newDiscount)
+   console.log("DESCONTO: ", newDiscount)
   //  console.log("RATE PER HOUR: ", ratePerHour)
   //  console.log("dayRate: ", dayRate(ratePerHour))
-  return Math.round((ratePerHour * 8) * 22 * newDiscount)
+  return (dayRate(ratePerHour) * 22) * newDiscount 
 }
 
 /**

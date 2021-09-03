@@ -14,23 +14,26 @@ export class Triangle {
     );
   }
 
+  get matchingSides() {
+    let isEquilateral = false;
+
+    if (this.a === this.b && this.b === this.c) {
+      isEquilateral = true;
+    }
+
+    return isEquilateral;
+  }
+
   get sumSides() {
     return this.sides.reduce((sum, curr) => sum + curr);
   }
 
   get isEquilateral() {
-    return this.sumSides > 0 && this.a === this.b && this.b === this.c;
+    return this.isTriangle && this.matchingSides;
   }
 
   get isIsosceles() {
-    if (this.isTriangle) {
-      return (
-        this.sides.sort()[0] == this.sides.sort()[1] ||
-        this.sides.sort()[1] == this.sides.sort()[2]
-      );
-    }
-
-    return false;
+    return this.isTriangle && (this.a === this.b || this.b === this.c || this.a === this.c);
   }
 
   get isScalene() {
