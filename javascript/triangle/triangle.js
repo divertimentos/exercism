@@ -15,30 +15,42 @@ export class Triangle {
   }
 
   get matchingSides() {
-    let isEquilateral = false;
-
-    if (this.a === this.b && this.b === this.c) {
-      isEquilateral = true;
+    if (
+      this.sides.sort()[0] === this.sides.sort()[1] &&
+      this.sides.sort()[1] === this.sides.sort()[2]
+    ) {
+      return 3;
     }
 
-    return isEquilateral;
-  }
+    if (
+      this.sides.sort()[0] === this.sides.sort()[1] ||
+      this.sides.sort()[1] === this.sides.sort()[2]
+    ) {
+      return 2;
+    }
 
-  get sumSides() {
-    return this.sides.reduce((sum, curr) => sum + curr);
+    return 0;
   }
 
   get isEquilateral() {
-    return this.isTriangle && this.matchingSides;
+    if (this.isTriangle && this.matchingSides === 3) {
+      return true;
+    }
+
+    return false;
   }
 
   get isIsosceles() {
-    return this.isTriangle && (this.a === this.b || this.b === this.c || this.a === this.c);
+    if ((this.isTriangle && this.matchingSides === 2) || this.isEquilateral) {
+      return true;
+    }
+
+    return false;
   }
 
   get isScalene() {
-    if (this.isTriangle) {
-      return !this.isEquilateral && !this.isIsosceles;
+    if (this.isTriangle && this.matchingSides === 0) {
+      return true;
     }
 
     return false;
