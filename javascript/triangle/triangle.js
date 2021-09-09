@@ -1,8 +1,6 @@
 export class Triangle {
   constructor(...sides) {
-    this.sides = sides;
-
-    [this.a, this.b, this.c] = this.sides;
+    [this.a, this.b, this.c] = sides;
   }
 
   get validTriangle() {
