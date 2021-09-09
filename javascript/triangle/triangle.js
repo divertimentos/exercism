@@ -2,7 +2,7 @@ export class Triangle {
   constructor(...sides) {
     this.sides = sides;
 
-    [this.a, this.b, this.c] = this.sides.sort();
+    [this.a, this.b, this.c] = this.sides;
   }
 
   get validTriangle() {
@@ -18,7 +18,7 @@ export class Triangle {
       return 3;
     }
 
-    if (this.a === this.b || this.b === this.c) {
+    if (this.a === this.b || this.b === this.c || this.a === this.c) {
       return 2;
     }
 
