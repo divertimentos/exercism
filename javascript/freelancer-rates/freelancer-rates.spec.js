@@ -33,22 +33,22 @@ describe("freelancer rates", () => {
   });
 
   describe("month rate", () => {
-    xtest("at 16/hour", () => {
+    test("at 16/hour", () => {
       const actual = monthRate(16, 0);
       expect(actual).toBe(2816);
     });
 
-    xtest("at 25/hour", () => {
+    test("at 25/hour", () => {
       const actual = monthRate(25, 0);
       expect(actual).toBe(4400);
     });
 
-    xtest("at 25/hour with a 50% discount", () => {
+    test("at 25/hour with a 50% discount", () => {
       const actual = monthRate(25, 0.5);
       expect(actual).toBe(2200);
     });
 
-    xtest("at 25/hour with a 1.23% discount", () => {
+    test("at 25/hour with a 1.23% discount", () => {
       const actual = monthRate(25, 0.0123);
       expect(actual).toBe(4346);
     });
