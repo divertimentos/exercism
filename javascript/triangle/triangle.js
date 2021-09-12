@@ -1,12 +1,9 @@
 export class Triangle {
   constructor(...sides) {
-    this.sides = sides;
-    this.a = sides[0];
-    this.b = sides[1];
-    this.c = sides[2];
+    [this.a, this.b, this.c] = sides;
   }
 
-  get isTriangle() {
+  get validTriangle() {
     return (
       this.a + this.b > this.c &&
       this.a + this.c > this.b &&
@@ -15,32 +12,28 @@ export class Triangle {
   }
 
   get matchingSides() {
-    let isEquilateral = false;
-
     if (this.a === this.b && this.b === this.c) {
-      isEquilateral = true;
+      return 3;
     }
 
-    return isEquilateral;
-  }
+    if (this.a === this.b || this.b === this.c || this.a === this.c) {
+      return 2;
+    }
 
-  get sumSides() {
-    return this.sides.reduce((sum, curr) => sum + curr);
+    return 0;
   }
 
   get isEquilateral() {
-    return this.isTriangle && this.matchingSides;
+    return this.validTriangle && this.matchingSides === 3;
   }
 
   get isIsosceles() {
-    return this.isTriangle && (this.a === this.b || this.b === this.c || this.a === this.c);
+    return (
+      (this.validTriangle && this.matchingSides === 2) || this.isEquilateral
+    );
   }
 
   get isScalene() {
-    if (this.isTriangle) {
-      return !this.isEquilateral && !this.isIsosceles;
-    }
-
-    return false;
+    return this.validTriangle && this.matchingSides === 0;
   }
 }
