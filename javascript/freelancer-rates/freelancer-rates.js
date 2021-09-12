@@ -17,11 +17,20 @@ export function dayRate(ratePerHour) {
  * @returns {number} the rounded up monthly rate
  */
 export function monthRate(ratePerHour, discount) {
-   const newDiscount = discount === 0 ? 1 : discount
-   console.log("DESCONTO: ", newDiscount)
-  //  console.log("RATE PER HOUR: ", ratePerHour)
-  //  console.log("dayRate: ", dayRate(ratePerHour))
-  return (dayRate(ratePerHour) * 22) * newDiscount 
+  console.log("DESCONTO:", discount);
+
+  // const newDiscount =
+  //   discount === 0
+  //     ? 0
+  //     : dayRate((ratePerHour * 22) * discount);
+  const newDiscount = Math.round(dayRate(ratePerHour * 22) * discount)
+
+  console.log("NEWDISCOUNT:", newDiscount)
+  console.log("VALUE:", dayRate(ratePerHour * 22))
+  
+  let appliedDiscount = Math.round((dayRate(ratePerHour) * 22) - newDiscount)
+  // appliedDiscount = Number(appliedDiscount.toFixed(7))
+  return appliedDiscount
 }
 
 /**
