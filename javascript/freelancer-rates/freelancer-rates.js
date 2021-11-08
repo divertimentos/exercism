@@ -18,7 +18,8 @@ export function monthRate(ratePerHour, discount) {
  * @returns {number} the number of days
  */
 export function daysInBudget(budget, ratePerHour, discount) {
-  throw new Error("Implement the daysInBudget function");
+  const day = dayRate(ratePerHour)
+  return budget
 }
 
 /**
