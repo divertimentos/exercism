@@ -83,14 +83,14 @@ describe("freelancer rates", () => {
         expect(actual).toBeCloseTo(expected, DIFFERENCE_PRECISION_IN_DIGITS);
       });
 
-      xtest("at 25/hour", () => {
+      test("at 25/hour", () => {
         const actual = daysInBudget(1280, 25, 0);
         const expected = 6;
 
         expect(actual).toBeCloseTo(expected, DIFFERENCE_PRECISION_IN_DIGITS);
       });
 
-      xtest("at 25/hour with 30% discount", () => {
+      test("at 25/hour with 30% discount", () => {
         const actual = daysInBudget(1280, 25, 0.3);
         const expected = 9;
 
@@ -99,28 +99,28 @@ describe("freelancer rates", () => {
     });
 
     describe("with a budget of 10.000", () => {
-      xtest("at 25/hour with 5% discount", () => {
+      test("at 25/hour with 5% discount", () => {
         const actual = daysInBudget(10000, 25, 0.05);
         const expected = 52;
 
         expect(actual).toBeCloseTo(expected, DIFFERENCE_PRECISION_IN_DIGITS);
       });
 
-      xtest("at 31.40/hour with 5% discount", () => {
+      test("at 31.40/hour with 5% discount", () => {
         const actual = daysInBudget(10000, 31.4, 0.05);
         const expected = 41;
 
         expect(actual).toBeCloseTo(expected, DIFFERENCE_PRECISION_IN_DIGITS);
       });
 
-      xtest("at 89.89/hour with 5% discount", () => {
+      test("at 89.89/hour with 5% discount", () => {
         const actual = daysInBudget(10000, 89.89, 0.05);
         const expected = 14;
 
         expect(actual).toBeCloseTo(expected, DIFFERENCE_PRECISION_IN_DIGITS);
       });
 
-      xtest("at 97.654321/hour with 5% discount", () => {
+      test("at 97.654321/hour with 5% discount", () => {
         const actual = daysInBudget(10000, 97.654321, 0.05);
         const expected = 13;
 
