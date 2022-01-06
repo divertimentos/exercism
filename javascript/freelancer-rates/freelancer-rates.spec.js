@@ -78,13 +78,21 @@ describe('freelancer rates', () => {
       });
     });
     describe('at 29.654321/hour', () => {
+<<<<<<< HEAD
       test('for 220 days with 11.2%', () => {
+=======
+      xtest('for 220 days with 11.2%', () => {
+>>>>>>> f958a830479146773105cc6dd6ed4346d811f5fc
         const actual = priceWithMonthlyDiscount(29.654321, 220, 0.112);
         const expected = 46347;
         expect(actual).toBeCloseTo(expected, DIFFERENCE_PRECISION_IN_DIGITS);
       });
 
+<<<<<<< HEAD
       test('for 155 days with 25.47% discount', () => {
+=======
+      xtest('for 155 days with 25.47% discount', () => {
+>>>>>>> f958a830479146773105cc6dd6ed4346d811f5fc
         const actual = priceWithMonthlyDiscount(29.654321, 155, 0.3547);
         const expected = 23813;
         expect(actual).toBeCloseTo(expected, DIFFERENCE_PRECISION_IN_DIGITS);
