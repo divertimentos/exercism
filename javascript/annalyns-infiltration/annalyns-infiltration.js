@@ -71,16 +71,10 @@ export function canFreePrisoner(
   prisonerIsAwake,
   petDogIsPresent
 ) {
-  if (!!petDogIsPresent && !archerIsAwake) {
+  if (!!petDogIsPresent && !archerIsAwake) return true;
+
+  if (!petDogIsPresent && !!prisonerIsAwake && !archerIsAwake && !knightIsAwake)
     return true;
-  } else if (
-    !petDogIsPresent &&
-    !!prisonerIsAwake &&
-    !archerIsAwake &&
-    !knightIsAwake
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+
+  return false;
 }
