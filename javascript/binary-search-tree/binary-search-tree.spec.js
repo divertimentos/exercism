@@ -14,7 +14,7 @@ describe('BinarySearchTree', () => {
   });
 
   describe('insert data at proper node', () => {
-    xtest('smaller number at left node', () => {
+    test('smaller number at left node', () => {
       const four = new BinarySearchTree(4);
       four.insert(2);
 
