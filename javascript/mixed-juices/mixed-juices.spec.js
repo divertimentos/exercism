@@ -37,7 +37,7 @@ describe('limesToCut', () => {
     expect(limesToCut(4, ['medium', 'small'])).toBe(1);
   });
 
-  test('uses up all limes if there are not enough to reach the target', () => {
+  xtest('uses up all limes if there are not enough to reach the target', () => {
     const limes = [
       'small',
       'large',
@@ -51,17 +51,17 @@ describe('limesToCut', () => {
     expect(limesToCut(80, limes)).toBe(7);
   });
 
-  test('if no new wedges are needed, no limes are cut', () => {
+  xtest('if no new wedges are needed, no limes are cut', () => {
     expect(limesToCut(0, ['small', 'large', 'medium'])).toBe(0);
   });
 
-  test('works if no limes are available', () => {
+  xtest('works if no limes are available', () => {
     expect(limesToCut(10, [])).toBe(0);
   });
 });
 
 describe('remainingOrders', () => {
-  test('correctly determines the remaining orders', () => {
+  xtest('correctly determines the remaining orders', () => {
     const orders = [
       'Tropical Island',
       'Energizer',
@@ -74,7 +74,7 @@ describe('remainingOrders', () => {
     expect(remainingOrders(7, orders)).toEqual(expected);
   });
 
-  test('correctly handles orders that were started because there was time left', () => {
+  xtest('correctly handles orders that were started because there was time left', () => {
     const orders = [
       'Pure Strawberry Joy',
       'Pure Strawberry Joy',
@@ -91,7 +91,7 @@ describe('remainingOrders', () => {
     expect(remainingOrders(13, orders)).toEqual(expected);
   });
 
-  test('counts all orders as fulfilled if there is enough time', () => {
+  xtest('counts all orders as fulfilled if there is enough time', () => {
     const orders = [
       'Energizer',
       'Green Garden',
@@ -104,7 +104,7 @@ describe('remainingOrders', () => {
     expect(remainingOrders(12, orders)).toEqual([]);
   });
 
-  test('works if there is only very little time left', () => {
+  xtest('works if there is only very little time left', () => {
     const orders = ['Bananas Gone Wild', 'Pure Strawberry Joy'];
     const expected = ['Pure Strawberry Joy'];
 
