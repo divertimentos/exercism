@@ -41,39 +41,20 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  let wedges = 0;
-  let index = 0;
-  while (wedges < wedgesNeeded) {
-    switch (limes[index]) {
-      case "small":
-        wedges += 6;
-      case "medium":
-        wedges += 8;
-      case "large":
-        wedges += 10;
-      default:
-        wedges += 0;
-    }
-    console.log(
-      `Volta nº ${index} | limão: ${limes[index]} | wedges: ${wedges}`
-    );
-
-    index += 1;
+  const limeSizes = {
+    'small': 6,
+    'medium': 8,
+    'large': 10,
   }
-  return index;
 
-  // limes.forEach((lime, index) => {
-  //   console.log("INDEX:", index)
-  //   switch (lime) {
-  //     case "small":
-  //       wedges += 6;
-  //     case "medium":
-  //       wedges +=8;
-  //     case "large":
-  //       wedges += 10;
-  //   }
-  //   return index
-  // });
+  let limeCounter = 0;
+  while (wedgesNeeded > 0) {
+    // console.log(`Vezes: ${limecounter}`)
+    wedgesNeeded -= limeSizes[limes[limeCounter]]
+    limeCounter += 1
+  }
+  return limeCounter
+
 }
 
 /**
