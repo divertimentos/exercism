@@ -49,7 +49,6 @@ export function limesToCut(wedgesNeeded, limes) {
 
   let limeCounter = 0;
   while (wedgesNeeded > 0) {
-    // console.log(`Vezes: ${limecounter}`)
     wedgesNeeded -= limeSizes[limes[limeCounter]]
     limeCounter += 1
   }
