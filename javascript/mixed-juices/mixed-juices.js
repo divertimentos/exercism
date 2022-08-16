@@ -47,10 +47,19 @@ export function limesToCut(wedgesNeeded, limes) {
     'large': 10,
   }
 
+  const limesSum = limes.map(lime => limeSizes[lime]).reduce((acc, cur) => acc + cur, 0)
+  // console.log(`Soma: ${limesSum}`)
+  // console.log(`wedgesNeeded: ${wedgesNeeded}`)
+  
+
   let limeCounter = 0;
+  let wedgesNeededTotal = 0;
+  console.log(wedgesNeededTotal);
+
   while (wedgesNeeded > 0) {
-    wedgesNeeded -= limeSizes[limes[limeCounter]]
+    wedgesNeededTotal -= limeSizes[limes[limeCounter]]
     limeCounter += 1
+    wedgesNeededTotal 
   }
   return limeCounter
 
