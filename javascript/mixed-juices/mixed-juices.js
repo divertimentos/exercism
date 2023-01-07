@@ -40,29 +40,26 @@ export function timeToMixJuice(name) {
  * @param {string[]} limes
  * @returns {number} number of limes cut
  */
+
 export function limesToCut(wedgesNeeded, limes) {
+  // if (wedgesNeeded === 0 || limes.length === 0) return 0;
+  if (!wedgesNeeded) return 0;
+
   const limeSizes = {
-    'small': 6,
-    'medium': 8,
-    'large': 10,
+    small: 6,
+    medium: 8,
+    large: 10,
+  };
+
+  let remain = wedgesNeeded;
+
+  for (let i = 0; i < limes.length; i++) {
+    remain -= limeSizes[limes[i]];
+
+    if (remain <= 0) return i + 1;
   }
 
-  const limesSum = limes.map(lime => limeSizes[lime]).reduce((acc, cur) => acc + cur, 0)
-  // console.log(`Soma: ${limesSum}`)
-  // console.log(`wedgesNeeded: ${wedgesNeeded}`)
-  
-
-  let limeCounter = 0;
-  let wedgesNeededTotal = 0;
-  console.log(wedgesNeededTotal);
-
-  while (wedgesNeeded > 0) {
-    wedgesNeededTotal -= limeSizes[limes[limeCounter]]
-    limeCounter += 1
-    wedgesNeededTotal 
-  }
-  return limeCounter
-
+  return limes.length;
 }
 
 /**
@@ -73,5 +70,21 @@ export function limesToCut(wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error("Please implement the remainingOrders function");
+  let juicesForDmitry = [...new Set(orders)];
+  let remainingTime = orders.reduce((accOrders, currOrder) => accOrders + timeToMixJuice(currOrder), 0);
+
+  if (timeLeft > remainingTime) return []
+
+  juicesForDmitry.map((order) => {
+    if (remainingTime <= 0) juicesForDmitry;
+
+    remainingTime -= timeToMixJuice(order);
+    juicesForDmitry.shift();
+
+    return juicesForDmitry
+
+  })
+
+  return juicesForDmitry
+
 }
