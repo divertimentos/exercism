@@ -157,7 +157,7 @@ describe("addSecretIngredient", () => {
 });
 
 describe("scaleRecipe", () => {
-  xtest("scales up correctly", () => {
+  test("scales up correctly", () => {
     const recipe1 = {
       sauce: 0.5,
       noodles: 250,
@@ -201,7 +201,7 @@ describe("scaleRecipe", () => {
     expectObjectsToBeEqual(scaleRecipe(recipe2, 3), expected2);
   });
 
-  xtest("scales down correctly", () => {
+  test("scales down correctly", () => {
     const recipe = {
       sauce: 0.5,
       noodles: 250,
@@ -220,11 +220,11 @@ describe("scaleRecipe", () => {
     expectObjectsToBeEqual(scaleRecipe(recipe, 1), expected);
   });
 
-  xtest("works for an empty recipe", () => {
+  test("works for an empty recipe", () => {
     expect(scaleRecipe({})).toEqual({});
   });
 
-  xtest("does not modify the original recipe", () => {
+  test("does not modify the original recipe", () => {
     const recipe = {
       sauce: 1,
       noodles: 250,
