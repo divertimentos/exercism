@@ -42,7 +42,6 @@ export function timeToMixJuice(name) {
  */
 
 export function limesToCut(wedgesNeeded, limes) {
-  // if (wedgesNeeded === 0 || limes.length === 0) return 0;
   if (!wedgesNeeded) return 0;
 
   const limeSizes = {
@@ -71,9 +70,12 @@ export function limesToCut(wedgesNeeded, limes) {
  */
 export function remainingOrders(timeLeft, orders) {
   let juicesForDmitry = [...new Set(orders)];
-  let remainingTime = orders.reduce((accOrders, currOrder) => accOrders + timeToMixJuice(currOrder), 0);
+  let remainingTime = orders.reduce(
+    (accOrders, currOrder) => accOrders + timeToMixJuice(currOrder),
+    0
+  );
 
-  if (timeLeft > remainingTime) return []
+  if (timeLeft > remainingTime) return [];
 
   juicesForDmitry.map((order) => {
     if (remainingTime <= 0) juicesForDmitry;
@@ -81,10 +83,8 @@ export function remainingOrders(timeLeft, orders) {
     remainingTime -= timeToMixJuice(order);
     juicesForDmitry.shift();
 
-    return juicesForDmitry
+    return juicesForDmitry;
+  });
 
-  })
-
-  return juicesForDmitry
-
+  return juicesForDmitry;
 }
