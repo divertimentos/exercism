@@ -60,7 +60,7 @@ export function sandwichTrick(deck) {
  * @returns {number[]} deck with only 2s
  */
 export function twoIsSpecial(deck) {
-  throw new Error("Implement the twoIsSpecial function");
+  return deck.filter((card) => card === 2);
 }
 
 /**
@@ -71,7 +71,11 @@ export function twoIsSpecial(deck) {
  * @returns {number[]} ordered deck
  */
 export function perfectlyOrdered(deck) {
-  throw new Error("Implement the perfectlyOrdered function");
+  return deck.sort((item1, item2) => {
+    if (item1 < item2) return -1;
+    if (item2 > item2) return 1;
+    return 0;
+  });
 }
 
 /**
@@ -82,5 +86,5 @@ export function perfectlyOrdered(deck) {
  * @returns {number[]} reordered deck
  */
 export function reorder(deck) {
-  throw new Error("Implement the reorder function");
+  return deck.reverse();
 }
